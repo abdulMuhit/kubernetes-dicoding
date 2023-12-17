@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  labels:
+    type: local
+  name: mongo-pv
+  namespace: abdul-dicoding-namespace
+spec:
+  capacity:
+    storage: 3Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data/mongodb"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pvc
+  namespace: abdul-dicoding-namespace
+spec:
+  resources:
+    requests:
+      storage: 3Gi
+  accessModes:
+    - ReadWriteOnce

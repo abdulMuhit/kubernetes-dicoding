@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: karsajobs-ui
+  namespace: abdul-dicoding-namespace
+  labels:
+    app: karsajobs
+    type: frontend
+spec:
+  selector:
+    matchLabels:
+      type: frontend
+  template:
+    metadata:
+      labels:
+        app: karsajobs
+        type: frontend
+    spec:
+      containers:
+        - name: karsajobs-ui
+          image: ghcr.io/abdulmuhit/karsajobs-ui:latest
+          env:
+          - name: VUE_APP_BACKEND
+            value: "http://127.0.0.1:59912"
+          ports:
+            - containerPort: 8000
