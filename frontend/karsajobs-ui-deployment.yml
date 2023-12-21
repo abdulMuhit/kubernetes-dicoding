@@ -21,6 +21,6 @@ spec:
           image: ghcr.io/abdulmuhit/karsajobs-ui:latest
           env:
           - name: VUE_APP_BACKEND
-            value: "http://127.0.0.1:59912"
+            value: "http://127.0.0.1:52197"
           ports:
             - containerPort: 8000
